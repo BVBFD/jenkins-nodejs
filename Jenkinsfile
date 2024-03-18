@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PATH = "${pwd}:/path/to/nodejs/bin:/path/to/npm/bin"
+        PATH = "/path/to/nodejs/bin:/path/to/npm/bin:${env.PATH}"
     }
     stages {
         stage("checkout") {
@@ -11,7 +11,7 @@ pipeline {
         }
         stage("Test") {
             steps {
-                sh 'npm test'
+                sh 'npm run test'
             }
         }
         stage("Build") {
