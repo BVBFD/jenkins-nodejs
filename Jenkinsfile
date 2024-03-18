@@ -5,22 +5,28 @@ pipeline {
     }
     
     stages{
-        stage("checkout"){
+        stage("checkout") {
             steps{
                 checkout scm
             }
         }
 
-        stage("Test"){
+        stage('git clone') {
+            steps() {
+                git 'https://github.com/BVBFD/jenkins-nodejs.git'
+            }
+        }
+
+        stage("Test") {
             steps{
-                sh 'sudo apt install npm'
                 sh 'npm test'
             }
         }
 
-        stage("Build"){
+        stage("Build") {
             steps{
                 sh 'npm run build'
+                sh 'npm install'
             }
         }
     }
