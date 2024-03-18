@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        PATH = "${pwd}:/path/to/nodejs/bin:/path/to/npm/bin"
-    }
     
     stages {
         stage('git clone') {
