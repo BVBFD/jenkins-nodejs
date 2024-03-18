@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    tools { nodejs "nodejs" }
+    environment {
+        PATH = "$(pwd):/path/to/nodejs/bin:/path/to/npm/bin"
+    }
     stages {
         stage("checkout") {
             steps {
