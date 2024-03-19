@@ -17,7 +17,7 @@ app.get("/hello", function (req, res) {
 });
 
 app.get("/test", (req, res) => {
-  res.status(200).json({ message: "Test Hello World!!!" });
+  res.status(200).json({ message: "Test Hello World!!" });
 });
 
 app.listen(PORT, HOST, () => {
