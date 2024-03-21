@@ -1,0 +1,369 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+body {
+  overflow-x: hidden;
+  border: 5px solid #f7e8ec;
+  width: 60%;
+}
+
+section {
+  background: linen;
+  z-index: -2;
+  padding: 0 3rem;
+}
+
+header {
+  background: linen;
+  padding-top: 3rem;
+  position: relative;
+}
+
+header div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+header div h3 {
+  position: relative;
+  font-size: 5rem;
+  z-index: 1;
+}
+
+header div h3::before {
+  position: absolute;
+  content: 'LOTTO';
+  bottom: -0.4rem;
+  right: -0.4rem;
+  color: #fbd9e2;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+header div h4 {
+  align-self: flex-end;
+  padding-bottom: 1rem;
+}
+
+header div img {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 2rem;
+}
+
+header div img:nth-child(4) {
+  width: 8rem;
+  height: 8rem;
+  margin-left: 2rem;
+}
+
+header div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+header div:nth-child(2) p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+header .playBtn {
+  position: absolute;
+  bottom: 0;
+  right: 2.5rem;
+  padding: 0.5rem;
+  background: lightcoral;
+  border: 2px solid #fadfe6;
+  color: white;
+  font-weight: normal;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+header .playBtn:active {
+  transform: scale(0.8);
+  font-size: 90%;
+}
+
+.numbox {
+  padding: 2rem 0 0.5rem 0;
+}
+
+.numbox .numboxBorder {
+  height: 1px;
+  width: 100%;
+  border: 1px dashed black;
+}
+
+.numbox .numboxRow {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem 0;
+  align-items: flex-start;
+}
+
+.numbox .numboxRow span {
+  font-size: 1.4rem;
+  font-weight: bolder;
+  position: relative;
+}
+
+.numbox .numboxRow span div:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background: #666;
+  color: white;
+  transform: translateY(0) rotateX(0);
+  transform-origin: bottom;
+}
+
+.numbox .numboxRow span div:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background: white;
+  transform: translateY(100%) rotateX(90deg);
+  transform-origin: top;
+}
+
+.numbox .numboxRow span div:nth-child(1).active {
+  transform: translateY(0) rotateX(0);
+  animation: animate1 0.2s linear forwards;
+}
+
+.numbox .numboxRow span div:nth-child(2).active {
+  transform: translateY(100%) rotateX(90deg);
+  animation: animate2 0.2s linear forwards;
+}
+
+@keyframes animate1 {
+  100% {
+    transform: translateY(-100%) rotateX(90deg);
+  }
+}
+
+@keyframes animate2 {
+  100% {
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+/* .numbox .numboxRow span:hover div:nth-child(1) {
+  transform: translateY(-100%) rotateX(90deg);
+}
+
+.numbox .numboxRow span:hover div:nth-child(2) {
+  transform: translateY(0) rotateX(0);
+} */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  padding: 1rem 0;
+  padding-bottom: 2rem;
+}
+
+.footer .price {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 0.2rem;
+}
+
+.footer .price span {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.footer .footerNum {
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+
+.footer .qrImgBox {
+  padding: 0.5rem 0;
+  border: 1px solid linen;
+}
+
+.footer .qrImgBox img {
+  width: 80%;
+  height: 6rem;
+}
+
+@media screen and (max-width: 760px) {
+  body {
+    max-width: 100vw;
+    width: 100%;
+  }
+
+  header div:nth-child(2) p {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+
+  .header {
+    padding: 2.2rem;
+  }
+
+  .numbox .numboxRow h3 {
+    font-size: 1rem;
+  }
+
+  .numbox .numboxRow span {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  header div h3 {
+    font-size: 2rem;
+  }
+
+  header div img {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+  }
+
+  header div img:nth-child(4) {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  header .playBtn {
+    right: 0;
+    bottom: -2rem;
+    padding: 0.2rem;
+  }
+
+  .footer .price span {
+    font-size: 1rem;
+  }
+
+  .footer .footerNum {
+    font-size: 0.8rem;
+  }
+
+  .footer .qrImgBox img {
+    width: 80%;
+    height: 3rem;
+  }
+}
+
+@media screen and (max-height: 1024px) and (max-width: 768px) {
+  header div h3 {
+    font-size: 3rem;
+  }
+
+  header div img {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+  }
+
+  header div img:nth-child(4) {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  header .playBtn {
+    right: 0;
+    bottom: -2rem;
+    padding: 0.2rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  body {
+    max-width: 100vw;
+    width: 100%;
+  }
+
+  header {
+    padding: 1rem;
+  }
+
+  header div:nth-child(2) p {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .numbox .numboxRow h3 {
+    font-size: 1rem;
+  }
+
+  .numbox .numboxRow span {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  header div h3 {
+    font-size: 1.8rem;
+  }
+
+  .footer .price span {
+    font-size: 1rem;
+  }
+
+  .footer .footerNum {
+    font-size: 0.8rem;
+  }
+
+  .numbox .numboxRow span div:nth-child(1) {
+    width: 1.5rem;
+    line-height: 1.5rem;
+  }
+  .numbox .numboxRow span div:nth-child(2) {
+    width: 1.5rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  body {
+    width: 100%;
+  }
+
+  header div:nth-child(2) p {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  .numbox .numboxRow span div:nth-child(1) {
+    width: 1.3rem;
+    line-height: 1.3rem;
+  }
+  .numbox .numboxRow span div:nth-child(2) {
+    width: 1.3rem;
+    line-height: 1.3rem;
+  }
+}

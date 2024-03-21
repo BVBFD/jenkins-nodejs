@@ -2,6 +2,7 @@
 
 const dotenv = require("dotenv");
 const express = require("express");
+const path = require("path");
 
 dotenv.config();
 
@@ -9,8 +10,10 @@ const { HOST, PORT } = process.env;
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, "public")));
+
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.get("/hello", function (req, res) {
